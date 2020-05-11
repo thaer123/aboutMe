@@ -4,15 +4,28 @@
     console.log(name);
     var sName=prompt("please enter your dad name");
     console.log(sName);
-    var age=prompt("please enter your age");
+    var age=prompt("is your age betweet 20 -30 ? please answer with yes/no");
     console.log(age);
-    var university=prompt("please enter your university name");
+    var university=prompt("is your universty in jordan ?  please answer with yes/no");
     console.log(university);
-    var major=prompt("please enter your major");
+    var major=prompt("is your major in technology field? please answer with yes/no");
     console.log(major);
-    alert(" hi "+ name + "  " + sName +" your age is " + age + " you have graduated from " 
-    + university + " university  with B.D in "+ major );
+    alert(" hi "+ name + "  " + sName +" your age between 20-30 " + age + " you have graduated from jordanian university " 
+    + university + "  with B.D in technology "+ major );
 
+function out(params) {
+    
+
+    if (age==='yes'&& university==='yes'&& major==='yes') {
+       var b= document.writeln(' hello '+ name.toUpperCase() +' i wish you happy life ');
+       var right=alert("you are right Mr "+name.toUpperCase());
+      
+    } else {
+       var b= document.write("hello"+name+" "+sName+"hi");
+        
+    }
+    return b.toUpperCase();
+}
 // function login(){
 //     var loginfo=confirm('do you have account'); 
 //     if (loginfo) {
