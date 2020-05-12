@@ -1,75 +1,123 @@
- 'use strict'
- 
-    var name=prompt("please enter your first name");
-    console.log(name);
-    var sName=prompt("please enter your dad name");
-    console.log(sName);
-    var age=prompt("is your age betweet 20 -30 ? please answer with yes/no");
-    console.log(age);
-    var university=prompt("is your universty in jordan ?  please answer with yes/no");
-    console.log(university);
-    var major=prompt("is your major in technology field? please answer with yes/no");
-    console.log(major);
-    alert(" hi "+ name + "  " + sName +" your age between 20-30 " + age + " you have graduated from jordanian university " 
-    + university + "  with B.D in technology "+ major );
+  'use strict'
+var score = 0;
+var name = prompt('What is your name?');
+console.log('User name: ' + name);
 
-function out(params) {
-    
+alert('Hi ' + name + ', Welcome to my page!');
+alert('lets play a guessing game about me. Only Yes or No answers are valid.');
 
-    if (age==='yes'&& university==='yes'&& major==='yes') {
-       var b= document.writeln(' hello '+ name.toUpperCase() +' i wish you happy life ');
-       var right=alert("you are right Mr "+name.toUpperCase());
-      
-    } else {
-       var b= document.write("hello"+name+" "+sName+"hi");
-        
+function yesCorrect (question) {
+    if (question.toUpperCase() === 'YES') {
+        score++;
+        alert("Yes!, you are right.");
     }
-    return b.toUpperCase();
+    else if (question.toUpperCase() === 'NO'){
+        alert("Sorry, wrong answer.");
+    }
+    else {
+        alert("This answer is not valid");
+    }
 }
-// function login(){
-//     var loginfo=confirm('do you have account'); 
-//     if (loginfo) {
-//         var welcomeOrNot='welcome to your faverate ';
-//     } 
-//     else{
-//         welcomeOrNot='please signUp ';
-//     }
-//     return welcomeOrNot;
-// }
+
+function noCorrect (question) {
+    if (question.toUpperCase() === 'YES') {
+        alert("Sorry, wrong answer.");
+    }
+    else if (question.toUpperCase() === 'NO'){
+        score++;
+        alert("Yes! you are right.");
+    }
+    else {
+        alert("This answer is not valid");
+    }
+}
 
 
-// function helloThere(){
-//     var name=prompt('whats your name:');
-    
+// Guess Question 1
+var favColor = prompt(name + " Is my favorite color Red? Yes or No:");
+console.log('my favorite color: ' + favColor);
 
-//     while (name!==null && name!==Number ) {
+noCorrect(favColor);
 
-//        name=prompt('please enter your age');
-        
-//     }
-//     var numberOf=prompt('haw mutch time you spend sleeping ');
-//     console.log(numberOfO);
-    
-//     for (var i = 0; i< numberOf; i++) {
-       
-//     if (name==='shihab') {
-//         photo=photo+'<img src="https://migrationology.com/wp-content/uploads/2016/04/mansaf-jordanian-food.jpg">';
 
-        
-//     } else if (name==='razan') {
-//          photo=photo+'<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNCBvzqVUTtPRnqtRh5agxHcraTtXHJlOxA8eypYP8HUSPDNTo&usqp=CAU">';
+// Guess Question 2
+var coffee = prompt(name + ' Do I like coffee? Yes or No:');
+console.log('coffee: ' + coffee);
 
-//     } else if (name==='thaer') {
+noCorrect(coffee);
 
-//         photo=photo+'<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDRyrq8TdpdG7nW_1ddNaOlxRBZaKhTrHdCqjCc2zlkmI1fHHj&usqp=CAU">';
-//    } 
- 
-// }   
 
-   
-    
+// Guess Question 3
+var rollerCoaster = prompt(name + ' Do I like roller coasters? Yes or No');
+console.log('roller coaster: ' + rollerCoaster);
 
-//     return photo;
-    
-   
-// }
+noCorrect(rollerCoaster);
+
+// Guess Question 4
+var macUser = prompt(name + ' Do I prefer Mac computers? Yes or No');
+console.log('mac user: ' + macUser);
+
+yesCorrect(macUser);
+
+
+// Guess Question 5
+var windowsUser = prompt(name + ' Do I prefer Windows computers? Yes or No');
+console.log('windows user: ' + windowsUser);
+
+noCorrect(windowsUser);
+
+
+// Guess Question 6
+function guessFavNumber() {
+    var counter = 1;
+    if (counter === 5) {
+        alert('Sorry you run out of guesses');
+    }
+    while (counter < 5 && number !==27) {
+        var number = parseInt(prompt('Guess my favorite number'));
+        if (number > 27) {
+            alert('You guessed too high! Guess again');
+            counter++;
+        } else if (number < 27) {
+            alert('You guessed too low! Guess again');
+            counter++;
+        }
+    }
+    if (number === 27) {
+        alert('That is correct! My favorite number is 27!');
+        score++;
+        counter = 5;
+    }
+}
+
+guessFavNumber();
+
+
+// Guess Question 7
+
+function questionSeven() {
+    var userFavFruit = ['apple', 'strawberry', 'orange', 'grape', 'watermelon'];
+
+    for (var i = 0; i < 6; i++) {
+        var userAnsw = prompt('Can you guess my favorite fruit?');
+        var guess = userAnsw.toLowerCase();
+
+        for (var j = 0; j < userFavFruit.length; j++){
+            if (guess === userFavFruit[j]) {
+                alert('Congrats you got it right!!!');
+                score++;
+                i = 6;
+                break;
+            }
+        }
+        if (i !==6){
+            alert('Sorry wrong answer, try again');
+        }
+    }
+}
+
+questionSeven();
+
+alert('My favorite fruits are: apple, strawberry, orange, grape and watermelon');
+
+alert('Good Job!... You got ' + score + ' correct answers!');
